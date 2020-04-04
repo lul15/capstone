@@ -59,5 +59,9 @@
     "yarn.lock": [
       "git rm --cached"
     ]
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "react-map-gl": "^5.2.3"
   }
 }
