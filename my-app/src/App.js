@@ -1,13 +1,47 @@
 /* eslint-disable */
-//import React from 'react';
-// import logo from './logo.svg';
+import React, { Component } from 'react';
+import logo from './logo.svg';
 import './App.css';
 import * as schoolData from "./mapData/school-data.json";
-import React, { useState, useEffect } from "react";
+//import React, { useState, useEffect } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { faSchool} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import Loginscreen from './Loginscreen'
+
+class App extends Component {
+  constructor(props) {
+    super(props); 
+    this.state={
+      loginPage: [],
+      uploadScreen: []
+    }
+  }
+
+  componentWillMount() {
+    var loginPage = []; 
+    loginPage.push(<Loginscreen parentContext={this} />); 
+    this.setState({
+      loginPage:loginPage
+    })
+  }
+
+  render() {
+    return (
+      <div className="App">
+        {this.state.loginPage}
+        {this.state.uploadScreen}
+      </div>
+    ); 
+  }
+}
+
+const style = {
+  margin: 20,
+};
+
+export default App; 
 
 // function App() {
 //   return (
@@ -17,7 +51,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //         <p>
 //           Edit <code>src/App.js</code> and save to reload.
 //         </p>
-//         <p>hi</p>
 //         <a
 //           className="App-link"
 //           href="https://reactjs.org"
@@ -31,6 +64,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //   );
 // }
 
+// export default App;
+
+/*
 export default function App() {
   const [viewport, setViewport] = useState({
     latitude: 42.40,
@@ -103,5 +139,5 @@ export default function App() {
     </div>
   );
 }
+*/
 
-//export default App;
